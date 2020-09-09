@@ -5,10 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 @Data
 @Builder
@@ -19,6 +16,7 @@ public class User {
 
     @NotBlank(message = "用户名不为空")
     @Size(max = 10, min = 3, message = "用户名不合法")
+    @Pattern(regexp = "^[0-9a-zA-Z_]{1,}$", message = "用户名不合法，只能由字母、数字或下划线组成")
     String username;
 
     @NotNull(message = "密码是不为空")
