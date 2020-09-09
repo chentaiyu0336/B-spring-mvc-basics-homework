@@ -23,5 +23,10 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResult);
     }
 
+    @ExceptionHandler(WrongLoginMessageException.class)
+    public ResponseEntity<ErrorResult> handleWrongLoginMessageException(WrongLoginMessageException ex) {
+        ErrorResult errorResult = new ErrorResult(400, ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResult);
+    }
 
 }

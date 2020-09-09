@@ -28,6 +28,11 @@ public class LoginController {
         return ResponseEntity.created(null).build();
     }
 
-
+    @GetMapping("/login")
+    public User login(@RequestParam String username,
+                      @RequestParam String password) {
+        User user = loginService.login(username, password);
+        return user;
+    }
 
 }
