@@ -32,7 +32,7 @@ public class LoginController {
 
     @GetMapping("/login")
     public User login(@RequestParam @NotBlank(message = "用户名不为空") @Size(max = 10, min = 3, message = "用户名不合法") @Pattern(regexp = "^[0-9a-zA-Z_]{1,}$", message = "用户名不合法，只能由字母、数字或下划线组成") String username,
-                      @RequestParam @NotNull(message = "密码是不为空") @Size(max = 12, min = 5, message = "密码不合法") String password) {
+                      @RequestParam @NotBlank(message = "密码是不为空") @Size(max = 12, min = 5, message = "密码不合法") String password) {
         User user = loginService.login(username, password);
         return user;
     }

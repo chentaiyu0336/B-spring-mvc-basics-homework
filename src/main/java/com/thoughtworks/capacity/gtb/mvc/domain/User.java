@@ -19,7 +19,7 @@ public class User {
     @Pattern(regexp = "^[0-9a-zA-Z_]{1,}$", message = "用户名不合法，只能由字母、数字或下划线组成")
     String username;
 
-    @NotNull(message = "密码是不为空")
+    @NotBlank(message = "密码是不为空")
     @Size(max = 12, min = 5, message = "密码不合法")
     String password;
 
